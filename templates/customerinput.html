@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block title %}
+Input Form
+{% endblock title %}
+
+{% block body %}
+
+<form method="post" action="/confirmtransfer">
+{% csrf_token %}
+<center>
+<div class="container my-5" >
+<div class="mb-3 form-group col-lg-5" style="margin-top:7%;">
+<center> <label for="name" class="form-label "><b>Sender:</b></label></center>
+{% for student in student_number %}
+    <select class="form-select"name="sender" aria-label="Default select example" required>
+    <option selected value="{{student.id}}" name="{{student.id}}">{{student.name}}</option>
+    </select><br>
+    <center> <label for="name" class="form-label "><b>Sender's Available Balance:</b></label></center>
+    <input class="form-control" type="text" value="{{student.currentbalance}}" aria-label="Disabled input example" disabled readonly >  
+{% endfor %}
+</div>
+<div class="mb-3 form-group col-lg-5" >
+<center> <label for="name" class="form-label "><b>* Receiver:</b></label></center>
+<select class="form-select"name="receiver" aria-label="Default select example" required>
+  <option selected>Select Receiver</option>
+  <option value="1" name="1">John Wright</option>
+  <option value="2" name="2">Jack Gabriel</option>
+  <option value="3" name="3">Robin Evans</option>
+  <option value="4" name="4">Maria Wilson</option>
+  <option value="5" name="5">Roy Brown</option>
+  <option value="6" name="6">Kevin Davies</option>
+  <option value="7" name="7">Rocky Taylor</option>
+  <option value="8" name="8">Selena Williams</option>
+  <option value="9" name="9">Charles Jones</option>
+  <option value="10" name="10">Prince Smith</option>
+</select>
+</div>
+<div class="mb-3 form-group col-lg-5">
+    <label for="exampleInputEmail1" class="form-label"><b>* Enter the amount:</b></label>
+    <input type="number" class="form-control" id="exampleInputEmail1"  name="amount" placeholder="Enter the amount" aria-describedby="emailHelp" required>
+  </div>
+  <div class="mb-3 form-group col-lg-5">
+    <label  class="form-label"><b>* Enter the Security Key to complete the transaction:</b></label>
+    <input type="password" class="form-control" name="security" id="exampleInputPassword1" placeholder="Security Key" required>
+  </div>
+<button type="submit" class="btn btn-primary">Confirm Payment</button>
+</div>
+</center>
+</form>
+
+{% endblock body %}

@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+Make a transfer
+{% endblock title %}
+{% block body %}
+ <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Sr.No</th>
+      <th scope="col">Customer's Name</th>
+      <th scope="col">Customer's Email ID</th>
+      <th scope="col">Customer's Mobile Number</th>
+     
+  </thead>
+  <tbody>
+    
+     
+       {% for item in objs %}
+    <tr>
+        <td>&nbsp;&nbsp;&nbsp;{{ item.id}}</td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;{{ item.name}}</td>
+        <td>&nbsp;&nbsp;{{ item.email }}</td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{item.phone}}</td>
+     </tr>
+       {% endfor %}
+   
+    
+    
+  </tbody>
+</table>
+
+<center><button type="submit" class="btn btn-success btn-lg" style="margin-top:3%; margin-right:3%;"><a href ="/money" style="text-decoration:none; color:white;">Transfer Money</a></button></center>
+
+
+{% endblock body %}

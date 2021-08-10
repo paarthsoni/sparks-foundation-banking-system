@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %}
+Transfer History
+{% endblock title %}
+
+{% block body %}
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Sr.No</th>
+      <th scope="col">Sender's Name</th>
+      <th scope="col">Sender's Email ID</th>
+      <th scope="col">Receiver's Name</th>
+      <th scope="col">Receiver's Email ID</th>
+      <th scope="col">Amount Transferred (in ₹)</th>
+      
+     
+  </thead>
+  <tbody>
+    
+     
+       {% for items in data %}
+    <tr>
+        <td>&nbsp;&nbsp;&nbsp;{{ items.id}}</td>
+        <td>&nbsp;&nbsp;&nbsp;{{ items.sender}}</td>
+         <td>&nbsp;&nbsp;{{ items.semail}}</td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;{{ items.receiver }}</td>
+        <td>&nbsp;&nbsp;{{ items.remail }}</td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ₹ {{items.amount}}</td>
+       
+     </tr>
+       {% endfor%}
+    
+    
+  </tbody>
+</table>
+
+{% endblock body %}
+
